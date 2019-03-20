@@ -188,7 +188,7 @@ blocks and patterns, rather than details like the syntax.
 
 You can most likely read it as a complete beginner, but
 you will need a companion book to make the most of it.
-Buy it from the http://ninenines.eu[Nine Nines website].
+Buy it from the https://ninenines.eu[Nine Nines website].
 
 ==== Programming Erlang
 
@@ -197,12 +197,12 @@ Armstrong. It provides a very good explanation of what
 Erlang is and why it is so. It serves as a very good
 introduction to the language and platform.
 
-The book is http://pragprog.com/book/jaerlang2/programming-erlang[Programming Erlang],
+The book is https://pragprog.com/book/jaerlang2/programming-erlang[Programming Erlang],
 and it also features a chapter on Cowboy.
 
 ==== Learn You Some Erlang for Great Good!
 
-http://learnyousomeerlang.com[LYSE] is a much more complete
+https://learnyousomeerlang.com[LYSE] is a much more complete
 book covering many aspects of Erlang, while also providing
 stories and humor. Be warned: it's pretty verbose. It comes
 with a free online version and a more refined paper and

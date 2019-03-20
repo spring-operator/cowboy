@@ -62,7 +62,7 @@ The reconstructed URI is returned as an iolist or a binary string.
 
 == Examples
 
-With an effective request URI http://example.org/path/to/res?edit=1
+With an effective request URI https://example.org/path/to/res?edit=1
 we can have:
 
 .Protocol relative form
@@ -75,7 +75,7 @@ cowboy_req:uri(Req, #{scheme => undefined}).
 .Serialized origin for use in the origin header
 [source,erlang]
 ----
-%% http://example.org
+%% https://example.org
 cowboy_req:uri(Req, #{path => undefined, qs => undefined}).
 ----
 
@@ -89,7 +89,7 @@ cowboy_req:uri(Req, #{host => undefined}).
 .Add a fragment to the URI
 [source,erlang]
 ----
-%% http://example.org/path/to/res?edit=1#errors
+%% https://example.org/path/to/res?edit=1#errors
 cowboy_req:uri(Req, #{fragment => <<"errors">>}).
 ----
 

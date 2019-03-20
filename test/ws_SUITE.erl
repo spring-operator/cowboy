@@ -35,7 +35,7 @@ init_per_group(Name = autobahn, Config) ->
 			ct:print("Skipping the autobahn group because the "
 				"Autobahn Test Suite is not installed.~nTo install it, "
 				"please follow the instructions on this page:~n~n    "
-				"http://autobahn.ws/testsuite/installation.html"),
+				"https://crossbar.io/autobahn/testsuite/installation.html"),
 			{skip, "Autobahn Test Suite not installed."};
 		_ ->
 			{ok, _} = cowboy:start_clear(Name, 100, [{port, 33080}], #{

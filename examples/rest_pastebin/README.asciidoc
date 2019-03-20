@@ -26,7 +26,7 @@ http://localhost:8080 with your favorite web browser and submit your paste via
 the form.
 
 Code that has been pasted can be highlighted with ?lang=<language> option if
-you have http://www.andre-simon.de/doku/highlight/en/highlight.html[highlight]
+you have http://www.andre-simon.de/doku/highlight/en/highlight.php[highlight]
 installed (although `pygments` or any other should work just fine).
 
 This will show the contents of the HTML file:

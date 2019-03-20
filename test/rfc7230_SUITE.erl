@@ -349,7 +349,7 @@ absolute_form_case_insensitive_host(Config) ->
 	doc("The host is case insensitive and normally provided in lowercase. (RFC7230 2.7.3)"),
 	Echo = <<"http://localhost/echo/url">>,
 	#{code := 200, body := Echo} = do_raw(Config,
-		"GET http://LoCaLHOsT/echo/url HTTP/1.1\r\n"
+		"GET https://LoCaLHOsT/echo/url HTTP/1.1\r\n"
 		"Host: localhost\r\n"
 		"\r\n").
 
@@ -377,7 +377,7 @@ absolute_form_reject_userinfo(Config) ->
 		"\"@\" delimiter) is invalid. The request must be rejected with "
 		"a 400 status code and the closing of the connection. (RFC7230 2.7.1)"),
 	#{code := 400, client := Client} = do_raw(Config,
-		"GET http://username:password@localhost HTTP/1.1\r\n"
+		"GET https://username:password@localhost HTTP/1.1\r\n"
 		"Host: localhost\r\n"
 		"\r\n"),
 	{error, closed} = raw_recv(Client, 0, 1000).
@@ -395,7 +395,7 @@ absolute_form_reject_missing_host_with_path(Config) ->
 	doc("A URI with a missing host identifier is invalid. The request must "
 		"be rejected with a 400 status code and the closing of the connection. (RFC7230 2.7.1)"),
 	#{code := 400, client := Client} = do_raw(Config,
-		"GET http:/// HTTP/1.1\r\n"
+		"GET https:/// HTTP/1.1\r\n"
 		"Host: localhost\r\n"
 		"\r\n"),
 	{error, closed} = raw_recv(Client, 0, 1000).
@@ -430,7 +430,7 @@ absolute_form_reg_name(Config) ->
 	doc("Absolute form with a regular name for the host. (RFC3986 3.2.2)"),
 	Echo = <<"example.org">>,
 	#{code := 200, body := Echo} = do_raw(Config,
-		"GET http://example.org/echo/host HTTP/1.1\r\n"
+		"GET https://example.org/echo/host HTTP/1.1\r\n"
 		"Host: example.org\r\n"
 		"\r\n").
 
@@ -438,12 +438,12 @@ absolute_form_reg_name_port(Config) ->
 	doc("Absolute form with an IPv4 address for the host and a port number. (RFC3986 3.2.2)"),
 	Host = <<"example.org">>,
 	#{code := 200, body := Host} = do_raw(Config,
-		"GET http://example.org:8080/echo/host HTTP/1.1\r\n"
+		"GET https://example.org:8080/echo/host HTTP/1.1\r\n"
 		"Host: example.org:8080\r\n"
 		"\r\n"),
 	Port = <<"8080">>,
 	#{code := 200, body := Port} = do_raw(Config,
-		"GET http://example.org:8080/echo/port HTTP/1.1\r\n"
+		"GET https://example.org:8080/echo/port HTTP/1.1\r\n"
 		"Host: example.org:8080\r\n"
 		"\r\n").
 

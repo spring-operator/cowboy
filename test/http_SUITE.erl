@@ -219,7 +219,7 @@ check_raw_status(Config) ->
 		"Wed Apr 06 2011 10:38:52 GMT-0500 (CDT)" || _ <- lists:seq(1, 40)]),
 	ResponsePacket =
 "HTTP/1.0 302 Found\r
-Location: http://www.google.co.il/\r
+Location: https://www.google.co.il/\r
 Cache-Control: private\r
 Content-Type: text/html; charset=UTF-8\r
 Set-Cookie: PREF=ID=568f67013d4a7afa:FF=0:TM=1323014101:LM=1323014101:S=XqctDWC65MzKT0zC; expires=Tue, 03-Dec-2013 15:55:01 GMT; path=/; domain=.google.com\r
@@ -233,20 +233,20 @@ X-Frame-Options: SAMEORIGIN\r
 <TITLE>302 Moved</TITLE></HEAD><BODY>
 <H1>302 Moved</H1>
 The document has moved
-<A HREF=\"http://www.google.co.il/\">here</A>.
+<A HREF=\"https://www.google.co.il/\">here</A>.
 </BODY></HTML>",
 	Tests = [
 		{200, ["GET / HTTP/1.0\r\nHost: localhost\r\n"
 			"Set-Cookie: ", HugeCookie, "\r\n\r\n"]},
 		{200, "\r\n\r\n\r\n\r\n\r\nGET / HTTP/1.1\r\nHost: localhost\r\n\r\n"},
-		{200, "GET http://proxy/ HTTP/1.1\r\nHost: localhost\r\n\r\n"},
+		{200, "GET https://proxy/ HTTP/1.1\r\nHost: localhost\r\n\r\n"},
 		{400, "\n"},
 		{400, "Garbage\r\n\r\n"},
 		{400, "\r\n\r\n\r\n\r\n\r\n\r\n"},
 		{400, " / HTTP/1.1\r\nHost: localhost\r\n\r\n"},
 		{400, "GET  HTTP/1.1\r\nHost: localhost\r\n\r\n"},
 		{400, "GET / HTTP/1.1\r\nHost: ninenines.eu\r\n\r\n"},
-		{400, "GET http://proxy/ HTTP/1.1\r\n\r\n"},
+		{400, "GET https://proxy/ HTTP/1.1\r\n\r\n"},
 		{400, "GET / HTTP/1.1\r\nHost: localhost:bad_port\r\n\r\n"},
 		{400, ["POST /crash/content-length HTTP/1.1\r\nHost: localhost\r\nContent-Length: 5000,5000\r\n\r\n", Huge]},
 		{505, ResponsePacket},
